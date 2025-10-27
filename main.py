@@ -22,7 +22,9 @@ def main():
             aruco.drawDetectedMarkers(frame, corners, ids)
             for i, corner in zip(ids, corners):
                 print(f"Detected marker ID: {i[0]}")
+                points = corner[0]
 
+        cv2.line(frame, (x1, y1), (x2, y2), (0, 255, 0), 3)
         cv2.imshow("ArUco Detection", frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
